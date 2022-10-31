@@ -12,6 +12,7 @@ def report():
 
 # TODO 3 Check for resource availability of ingredients for the order
 def resource_availability(order):
+    """Returns "Yes" if ingredients are available, insufficient if not available"""
     if order == 'espresso':
         if resources["water"] > menu["espresso"]["ingredients"]["water"]:
             if resources["coffee"] > menu["espresso"]["ingredients"]["coffee"]:
@@ -47,6 +48,7 @@ def resource_availability(order):
 
 # TODO 4 : Calculate money
 def accounts(pennies, quarters, dimes, nickels, order):
+    """Calculates inserted amount and returns balance amount if transaction is accepted or -1 rejected"""
     inserted_amount = pennies * 0.01 + quarters * 0.25 + dimes * 0.1 + nickels * 0.05
     bill = menu[order]["cost"]
     if inserted_amount >= bill:
